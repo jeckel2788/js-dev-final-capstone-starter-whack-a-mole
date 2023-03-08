@@ -43,9 +43,17 @@ function randomInteger(min, max) {
  *
  */
 function setDelay(difficulty) {
-  // TODO: Write your code here.
-  
+  if (difficulty === "easy") {
+    return 1500;
+  } else if (difficulty === "normal") {
+    return 1000;
+  } else ( difficulty === "hard"); {
+    return Math.floor(Math.random() * (1200 - 600 + 1) + 600);
+    //return randomInteger(600, 1200);
+  }
 }
+  
+
 
 /**
  * Chooses a random hole from a list of holes.
