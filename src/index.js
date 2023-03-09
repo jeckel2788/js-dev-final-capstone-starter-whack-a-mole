@@ -51,6 +51,9 @@ function setDelay(difficulty) {
     return Math.floor(Math.random() * (1200 - 600 + 1) + 600);
     //return randomInteger(600, 1200);
   }
+  // return setDelay("easy");
+  return setDelay("normal");
+  // return setDelay("hard"); 
 }
   
 
@@ -79,9 +82,7 @@ function chooseHole(holes) {
     lastHole = hole;
   }
   return hole;
-  // TODO: Write your code here.
-
-}
+  }
 
 /**
 *
