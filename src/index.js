@@ -105,9 +105,16 @@ function chooseHole(holes) {
 *
 */
 function gameOver() {
-  // TODO: Write your code here
+  if (time > 0) {
+    const timeoutId = showUp();
+    return timeoutId;
+  } else {
+    const gameStopped = stopGame();
+    return gameStopped;
+  }
+  }
   
-}
+
 
 /**
 *
@@ -119,8 +126,8 @@ function gameOver() {
 *
 */
 function showUp() {
-  let delay = 0; // TODO: Update so that it uses setDelay()
-  const hole = 0;  // TODO: Update so that it use chooseHole()
+  let delay = setDelay();; // TODO: Update so that it uses setDelay()
+  const hole = chooseHole();;  // TODO: Update so that it use chooseHole()
   return showAndHide(hole, delay);
 }
 
@@ -133,13 +140,13 @@ function showUp() {
 *
 */
 function showAndHide(hole, delay){
+  toggleVisibility(hole);
   // TODO: call the toggleVisibility function so that it adds the 'show' class.
-  
   const timeoutID = setTimeout(() => {
+    toggleVisibility(hole);
     // TODO: call the toggleVisibility function so that it removes the 'show' class when the timer times out.
-    
     gameOver();
-  }, 0); // TODO: change the setTimeout delay to the one provided as a parameter
+  }, delay); // TODO: change the setTimeout delay to the one provided as a parameter
   return timeoutID;
 }
 
@@ -150,11 +157,10 @@ function showAndHide(hole, delay){
 *
 */
 function toggleVisibility(hole){
-  // TODO: add hole.classList.toggle so that it adds or removes the 'show' class.
-  
+  hole.classList.toggle('show');
   return hole;
 }
-
+// TODO: add hole.classList.toggle so that it adds or removes the 'show' class.
 /**
 *
 * This function increments the points global variable and updates the scoreboard.
@@ -179,9 +185,8 @@ function updateScore() {
 *
 */
 function clearScore() {
-  // TODO: Write your code here
-  // points = 0;
-  // score.textContent = points;
+  pionts++;
+  score.textContent = points;
   return points;
 }
 
@@ -264,8 +269,8 @@ function stopGame(){
 *
 */
 function startGame(){
-  //setDuration(10);
-  //showUp();
+  setDuration(10);
+  showUp();
   return "game started";
 }
 
