@@ -7,11 +7,11 @@ const score = document.querySelector('#score');
 const timerDisplay = document.querySelector('#timer'); 
 // use querySelector() to get the timer element.
 
-let time = 15;
+let time = 30;
 let timer;
 let lastHole = 0;
 let points = 0;
-let difficulty = "easy";
+let difficulty = "normal";
 
 /**
  * Generates a random integer within a range.
@@ -24,8 +24,7 @@ let difficulty = "easy";
  */
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
-  // return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+  }
 
 /**
  * Sets the time delay given a difficulty parameter.
@@ -73,16 +72,7 @@ function setDelay(difficulty) {
  * chooseHole(holes) //> returns one of the 9 holes that you defined
  */
 
-/* function chooseHole(holes) {
-  const index = randomInteger(0, 8);
-  const hole = holes[index];
-  if (hole === lastHole) {
-    chooseHole(holes);
-  } else {
-   lastHole = hole;
-  }
-  return hole;
-  }  */
+
   function chooseHole(holes) {
     const index = randomInteger(0, 8);
     const hole = holes[index];
@@ -105,12 +95,7 @@ function setDelay(difficulty) {
 * return the timeoutId if the game continues or the string "game stopped"
 * if the game is over.
 *
-*  /* if time > 0:
-*     timeoutId = showUp()
-*   return timeoutId
-*   else
-*    gameStopped = stopGame()
-*    return gameStopped */
+*/
 
 
 function gameOver() {
@@ -182,11 +167,7 @@ function toggleVisibility(hole){
 * for your implementation:
 *
 */
-//function updateScore() {
-//  points++;
-//  score.textContent = points;
- // return points;
-//}
+
 function updateScore() {
   points+= 1;
   score.textContent = points;
@@ -200,11 +181,7 @@ function updateScore() {
 * the points.
 *
 */
-//function clearScore() {
-//  points = 0;
-//  score.textContent = points;
-//  return points;
-//}
+
 function clearScore() {
   points = 0;
   score.textContent = points;
@@ -281,7 +258,7 @@ function setDuration(duration) {
 function stopGame(){
   // stopAudio(song);  //optional
   clearInterval(timer);
-  time = 15;
+  time = 30;
   return "game stopped";
 }
 
